@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const moment = require('moment');
 module.exports = app =>{
   
     const save = async (req,res)=>{
@@ -12,10 +13,12 @@ module.exports = app =>{
                 database: 'monitor_home_temperature'
             });
         
+        let newDate = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
 
         //connection.connect();
 
-        const query = `insert into KITCHEN (date_hour, moisture, temperature) VALUE (${new Date()}, ${kitchen.umidade},${kitchen.temperatura});`
+       
+        const query = `insert into KITCHEN (date_hour, moisture, temperature) VALUE (${newDate}, ${kitchen.umidade},${kitchen.temperatura});`
         
         connection.query(query, function(error, results, fields){
             if(error) 
