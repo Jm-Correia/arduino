@@ -18,7 +18,7 @@ module.exports = app =>{
         //connection.connect();
 
        
-        const query = `insert into KITCHEN (date_hour, moisture, temperature) VALUE (${newDate}, ${kitchen.umidade},${kitchen.temperatura});`
+        const query = `insert into KITCHEN (date_hour, moisture, temperature) VALUE ('${newDate}', '${kitchen.umidade}','${kitchen.temperatura}');`
         
         connection.query(query, function(error, results, fields){
             if(error) 
